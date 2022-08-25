@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class ParenthesesChecker {
@@ -22,11 +23,31 @@ public class ParenthesesChecker {
             }
         });
 
+        if (closingBrackets.size() > 0) {
+            Collections.reverse(closingBrackets);
+        }
+
         //in case they have equal number of items, check if openings match closings
         if (openingBrackets.size() == closingBrackets.size()) {
+            for (int i = 0; i < openingBrackets.size(); i++) {
+                if (!openingBrackets.get(i).equals(ParenthesesChecker.mirrorClosingBrackets(closingBrackets.get(i)))) {
+                    return false;
+                }
+            }
+
             return true;
         }
 
         return false;
+    }
+
+    private static String mirrorClosingBrackets(String bracket) {
+        switch (bracket) {
+            case ")": return "(";
+            case "]": return "[";
+            case "}": return "{";
+            case ">": return "<";
+        }
+        return "";
     }
 }
