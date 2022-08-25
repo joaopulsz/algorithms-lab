@@ -13,12 +13,16 @@ public class ParenthesesChecker {
         List<String> openingParentheses = new ArrayList<>();
         List<String> closingParentheses = new ArrayList<>();
 
-        //iterate through list in search of parentheses and add them to separate list
+        //iterate through list in search of parentheses and add them to separate lists
         stringToList.forEach(character -> {
             if (character.equals("(") || character.equals("[") || character.equals("{") || character.equals("<")) {
                 openingParentheses.add(character);
+            } else if (character.equals(")") || character.equals("]") || character.equals("}") || character.equals(">")) {
+                closingParentheses.add(character);
             }
         });
+
+        System.out.println(openingParentheses.size() + " " + closingParentheses.size());
 
         return false;
     }

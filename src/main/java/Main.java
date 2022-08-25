@@ -4,6 +4,6 @@ public class Main {
 
         ParenthesesChecker checker = new ParenthesesChecker();
 
-        checker.checkParentheses("");
+        checker.checkParentheses("(()");
     }
 }
