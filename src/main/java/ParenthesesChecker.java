@@ -2,14 +2,18 @@ import java.util.*;
 
 public class ParenthesesChecker {
 
+    private List<String> stringToList;
+    private Stack<String> openingBrackets;
+    private Queue<String> closingBrackets;
+
     public boolean checkParentheses(String string) {
 
         //convert string to list
-        List<String> stringToList = new ArrayList<>(Arrays.asList(string.split("")));
+        stringToList = new ArrayList<>(Arrays.asList(string.split("")));
 
         //create new lists to organise the parentheses and separate them from the rest of the string
-        Stack<String> openingBrackets = new Stack<>();
-        Queue<String> closingBrackets = new LinkedList<>();
+        openingBrackets = new Stack<>();
+        closingBrackets = new LinkedList<>();
 
         //iterate through list in search of parentheses and add them to their respective list
         stringToList.forEach(character -> {
